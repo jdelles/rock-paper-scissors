@@ -2,7 +2,7 @@
 A simple implementation of grade-school classic rock paper scissors also known as the best way to settle any dispute. 
 
 From [The Odin Project](https://www.theodinproject.com) 
-
+[Play Here](https://jdelles.github.io/rock-paper-scissors/)
 
 ## Introduction
 The purpose of this project is to create a working Rock, Paper, Scissors game in JavaScript from scratch. 
