@@ -19,13 +19,13 @@ The purpose of this project is to create a working Rock, Paper, Scissors game in
 
 ## To do 
 - [X] Start a new GitHub Repo
-- [ ] Clone repo - set git user for repo to personal, not school
-- [ ] Create a blank HTML document with a script link
-- [ ] Set repo to display a live preview
-- [ ] Write a function called computerPlay that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. 
-- [ ] Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
-- [ ] Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
+- [X] Clone repo - set git user for repo to personal, not school
+- [X] Create a blank HTML document with a script link
+- [X] Set repo to display a live preview
+- [X] Write a function called computerPlay that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. 
+- [X] Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
+- [X] Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
 - [ ] Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
-- [ ] Setup a loop to play 5 rounds
-- [ ] At this point you should be using console.log() to display the results of each round and the winner at the end.
-- [ ] Use prompt() to get input from the user. Read the docs here if you need to.
+- [X] Setup a loop to play 5 rounds
+- [X] At this point you should be using console.log() to display the results of each round and the winner at the end.
+- [X] Use prompt() to get input from the user. Read the docs here if you need to.
