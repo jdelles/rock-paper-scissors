@@ -1,69 +1,101 @@
+let playerScore = 0; 
+let computerScore = 0; 
+
 function computerPlay() {
     const choice = Math.floor(Math.random() * 3); 
     if (choice === 0) {
         return 'rock'; 
     } else if (choice === 1) {
-        return 'scissors'; 
-    } else {
         return 'paper'; 
+    } else {
+        return 'scissors'; 
     }
 }
 
-function play(playerSelection, computerSelection) {
+function displayScore() {
+    const score = document.querySelector(".scoreboard"); 
+    score.textContent = `Player: ${playerScore} Computer: ${computerScore}`; 
+}
+
+function displayResults(announcement) {
+    const results = document.querySelector(".results"); 
+    results.textContent = announcement; 
+}
+
+function draw() {
+    displayResults("It's a draw!"); 
+}
+
+function computerWins(playerSelection, computerSelection) {
+    displayResults(`You lose. ${computerSelection} beats ${playerSelection}.`)
+    computerScore++; 
+    console.log("computer score: " + computerScore); 
+    if (computerScore >= 5) {
+        gameOver("You Lose!")
+    }
+}
+
+function playerWins(playerSelection, computerSelection) {
+    displayResults(`You win. ${playerSelection} beats ${computerSelection}.`)
+    playerScore++; 
+    console.log("player score: " + playerScore); 
+    if (playerScore >= 5) {
+        gameOver("You Win!")
+    }
+}
+
+function play(playerSelection) {
+    const computerSelection = computerPlay(); 
     playerSelection = playerSelection.toLowerCase(); 
 
     if (playerSelection === computerSelection) {
-        return "It's a draw!"; 
+        draw("It's a draw!");
+        return; 
     }
 
-    if (playerSelection === 'rock') {
-        if (computerSelection === 'paper') {
-            return "You lose! Paper beats Rock.";
-        } else {
-            return "You win! Rock beats Scissors."; 
-        }
-    }
-
-    if (playerSelection === 'paper') {
-        if (computerSelection === 'scissors') {
-            return "You lose! Scissors beats Paper.";
-        } else {
-            return "You win! Paper beats Rock."
-        }
-    }
-
-    if (playerSelection === 'scissors') {
-        if (computerSelection === 'rock') {
-            return "You lose! Rock beats Scissors.";
-        } else {
-           return "You win! Scissors beats Paper.";
-        }
-    }
-}
-
-function game() {
-    let playerScore = 0; 
-    let computerScore = 0; 
-
-    for (let i = 0; i < 5; i++) {
-        let playerChoice = prompt("Select Rock, Paper, or Scissors: "); 
-        let result = play(playerChoice, computerPlay()); 
-        console.log(result); 
-        result = result.slice(0, 5); 
-        if (result === "You l") {
-            computerScore++; 
-        } else if (result === 'You w') {
-            playerScore++; 
-        }
-        console.log("Player Score: " + playerScore); 
-        console.log("Computer Score: " + computerScore); 
-    }
-
-    if (playerScore > computerScore) {
-        console.log("You win!");
-    } else if (playerScore < computerScore) {
-        console.log("You lose!"); 
+    if (playerSelection === 'rock' && computerSelection === 'paper' || 
+        playerSelection === 'paper' && computerSelection === 'scissors' ||
+        playerSelection === 'scissors' && computerSelection === 'rock') {
+        computerWins(playerSelection, computerSelection); 
     } else {
-        console.log("It's a tie!"); 
+        playerWins(playerSelection, computerSelection);     
     }
+
+    displayScore(); 
 }
+
+function gameOver(winner) {
+    displayResults(winner); 
+    computerScore = 0; 
+    playerScore = 0; 
+}
+
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => {
+    play("rock")
+});
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => {
+    play("paper"); 
+});
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => {
+    play("scissors"); 
+});
+
+displayScore(); 
+
+/*
+const buttons = document.querySelectorAll('button');
+
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+
+  // and for each one we add a 'click' listener
+  button.addEventListener('click', () => {
+    alert(button.id);
+  });
+});
+*/
